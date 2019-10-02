@@ -1,0 +1,14 @@
+{
+  "name": "rubik",
+  "version": "0.1.0",
+  "description": "This is rubik in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha **/*.spec.js"
+  },
+  "keywords": [
+    "rubik"
+  ],
+  "author": "Mehmet Ali Irmak",
+  "license": "ISC"
+}
