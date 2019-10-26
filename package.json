@@ -4,7 +4,7 @@
   "description": "This is rubik in js",
   "main": "index.js",
   "scripts": {
-    "test": "mocha **/rubik.spec.js"
+    "test": "mocha **/*.spec.js"
   },
   "keywords": [
     "rubik"
