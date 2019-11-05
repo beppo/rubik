@@ -1,0 +1,135 @@
+<html>
+<link rel="stylesheet" href="../css/styles.css" />
+
+<body>
+    <div class="scene">
+        <div class="cube">
+            <div class="cube__face cube__face--front">
+                <!--Top row-->
+                <div class="face" axis="-1,1,1"></div>
+                <div class="face" axis="0,1,1"></div>
+                <div class="face" axis="1,1,1"></div>
+
+                <!--Middle row-->
+                <div class="face" axis="-1,0,1"></div>
+                <div class="face" axis="0,0,1"></div>
+                <div class="face" axis="1,0,1"></div>
+
+                <!-- Bottom row -->
+                <div class="face" axis="-1,-1,1"></div>
+                <div class="face" axis="0,-1,1"></div>
+                <div class="face" axis="1,-1,1"></div>
+            </div>
+            <div class="cube__face cube__face--back">
+                <!--Top row-->
+                <div class="face" axis="-1,1,-1"></div>
+                <div class="face" axis="0,1,-1"></div>
+                <div class="face" axis="1,1,-1"></div>
+
+                <!--Middle row-->
+                <div class="face" axis="-1,0,-1"></div>
+                <div class="face" axis="0,0,-1"></div>
+                <div class="face" axis="1,0,-1"></div>
+
+                <!-- Bottom row -->
+                <div class="face" axis="-1,-1,-1"></div>
+                <div class="face" axis="0,-1,-1"></div>
+                <div class="face" axis="1,-1,-1"></div>
+            </div>
+            <div class="cube__face cube__face--right">
+                <!--Top row-->
+                <div class="face" axis="1,1,1"></div>
+                <div class="face" axis="1,1,0"></div>
+                <div class="face" axis="1,1,-1"></div>
+
+                <!--Middle row-->
+                <div class="face" axis="1,0,1"></div>
+                <div class="face" axis="1,0,0"></div>
+                <div class="face" axis="1,0,-1"></div>
+
+                <!-- Bottom row -->
+                <div class="face" axis="1,-1,1"></div>
+                <div class="face" axis="1,-1,0"></div>
+                <div class="face" axis="1,-1,-1"></div>
+            </div>
+            <div class="cube__face cube__face--left">
+
+                <!--Top row-->
+                <div class="face" axis="-1,1,1"></div>
+                <div class="face" axis="-1,1,0"></div>
+                <div class="face" axis="-1,1,-1"></div>
+
+                <!--Middle row-->
+                <div class="face" axis="-1,0,1"></div>
+                <div class="face" axis="-1,0,0"></div>
+                <div class="face" axis="-1,0,-1"></div>
+
+                <!-- Bottom row -->
+                <div class="face" axis="-1,-1,1"></div>
+                <div class="face" axis="-1,-1,0"></div>
+                <div class="face" axis="-1,-1,-1"></div>
+            </div>
+
+            <div class="cube__face cube__face--top">
+
+                <!--Front row-->
+                <div class="face" axis="-1,1,1"></div>
+                <div class="face" axis="0,1,1"></div>
+                <div class="face" axis="1,1,1"></div>
+
+                <!--Middle row-->
+                <div class="face" axis="-1,1,0"></div>
+                <div class="face" axis="0,1,0"></div>
+                <div class="face" axis="1,1,01"></div>
+
+                <!-- Back row -->
+                <div class="face" axis="-1,1,-1"></div>
+                <div class="face" axis="0,1,-1"></div>
+                <div class="face" axis="1,1,-1"></div>
+            </div>
+            <div class="cube__face cube__face--bottom">
+                <!--Front row-->
+                <div class="face" axis="-1,-1,1"></div>
+                <div class="face" axis="0,-1,1"></div>
+                <div class="face" axis="1,-1,1"></div>
+
+                <!--Middle row-->
+                <div class="face" axis="-1,-1,0"></div>
+                <div class="face" axis="0,-1,0"></div>
+                <div class="face" axis="1,-1,01"></div>
+
+                <!-- Back row -->
+                <div class="face" axis="-1,-1,-1"></div>
+                <div class="face" axis="0,-1,-1"></div>
+                <div class="face" axis="1,-1,-1"></div>
+            </div>
+        </div>
+    </div>
+    <p class="radio-group">
+        <label>
+            <input type="radio" name="rotate-cube-side" value="front" checked /> front
+        </label>
+        <label>
+            <input type="radio" name="rotate-cube-side" value="right" /> right
+        </label>
+        <label>
+            <input type="radio" name="rotate-cube-side" value="back" /> back
+        </label>
+        <label>
+            <input type="radio" name="rotate-cube-side" value="left" /> left
+        </label>
+        <label>
+            <input type="radio" name="rotate-cube-side" value="top" /> top
+        </label>
+        <label>
+            <input type="radio" name="rotate-cube-side" value="bottom" /> bottom
+        </label>
+    </p>
+    <script src="../js/rubik.js">
+    </script>
+    <script src="../lib.js">
+
+    </script>
+</body>
+
+</html>

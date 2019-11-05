@@ -10,5 +10,15 @@
     "rubik"
   ],
   "author": "Mehmet Ali Irmak",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "browsify": "0.0.4"
+  }
 }
