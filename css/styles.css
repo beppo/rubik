@@ -13,40 +13,16 @@ body {
   perspective: 400px;
 }
 
-.cube {
+.rubik {
   width: 180px;
   height: 180px;
   position: relative;
   transform-style: preserve-3d;
-  transform: translateZ(-90px) rotate3d(-1, -1, 0, 45deg);
+  transform: translateZ(-90px);
   transition: transform 1s;
 }
 
-.cube.show-front {
-  transform: translateZ(-90px) rotateY( 0deg);
-}
-
-.cube.show-right {
-  transform: translateZ(-90px) rotateY( -90deg);
-}
-
-.cube.show-back {
-  transform: translateZ(-90px) rotateY(-180deg);
-}
-
-.cube.show-left {
-  transform: translateZ(-90px) rotateY( 90deg);
-}
-
-.cube.show-top {
-  transform: translateZ(-90px) rotateX( -90deg);
-}
-
-.cube.show-bottom {
-  transform: translateZ(-90px) rotateX( 90deg);
-}
-
-.cube__face {
+.rubik_face {
   position: absolute;
   width: 180px;
   height: 180px;
@@ -58,59 +34,55 @@ body {
   text-align: center;
 }
 
-.cube__face--front {
+.rubik_face--front {
   background: hsla( 0, 100%, 50%, 1.0);
 }
 
-.cube__face--right {
+.rubik_face--right {
   background: hsla( 60, 100%, 50%, 1.0);
 }
 
-.cube__face--back {
+.rubik_face--back {
   background: hsla(120, 100%, 50%, 1.0);
 }
 
-.cube__face--left {
+.rubik_face--left {
   background: hsla(180, 100%, 50%, 1.0);
 }
 
-.cube__face--top {
+.rubik_face--top {
   background: hsla(240, 100%, 50%, 1.0);
 }
 
-.cube__face--bottom {
+.rubik_face--bottom {
   background: hsla(300, 100%, 50%, 1.0);
 }
 
-.cube__face--front {
+.rubik_face--front {
   transform: rotateY( 0deg) translateZ(90px);
 }
 
-.cube__face--right {
+.rubik_face--right {
   transform: rotateY( 90deg) translateZ(90px);
 }
 
-.cube__face--back {
+.rubik_face--back {
   transform: rotateY(180deg) translateZ(90px);
 }
 
-.cube__face--left {
+.rubik_face--left {
   transform: rotateY(-90deg) translateZ(90px);
 }
 
-.cube__face--top {
+.rubik_face--top {
   transform: rotateX( 90deg) translateZ(90px);
 }
 
-.cube__face--bottom {
+.rubik_face--bottom {
   transform: rotateX(-90deg) translateZ(90px);
 }
 
-label {
-  margin-right: 10px;
-}
-
-.face {
+.cube_face {
   width: 60px;
   height: 60px;
   border: 2px solid white;
