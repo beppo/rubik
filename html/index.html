@@ -80,7 +80,7 @@
                 <!--Middle row-->
                 <div class="cube_face" axis="-1,1,0"></div>
                 <div class="cube_face" axis="0,1,0"></div>
-                <div class="cube_face" axis="1,1,01"></div>
+                <div class="cube_face" axis="1,1,1"></div>
 
                 <!-- Back row -->
                 <div class="cube_face" axis="-1,1,-1"></div>
@@ -96,7 +96,7 @@
                 <!--Middle row-->
                 <div class="cube_face" axis="-1,-1,0"></div>
                 <div class="cube_face" axis="0,-1,0"></div>
-                <div class="cube_face" axis="1,-1,01"></div>
+                <div class="cube_face" axis="1,-1,1"></div>
 
                 <!-- Back row -->
                 <div class="cube_face" axis="-1,-1,-1"></div>
@@ -107,54 +107,69 @@
     </div>
 
     <script>
-        var pos0 = {}
-        var pos1 = {}
-        var transitions = []
+        var pos0 = {};
+        var pos1 = {};
+        var transitions = [];
+        var isDragging = false;
+
         function normalize(x, y) {
-            const length = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2))
-            return [x / length, y / length]
+            const length = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+            return [x / length, y / length];
         }
+
         function normalizeRotation(rotation) {
-            if (rotation > Math.PI * 2) {
-                const pi2 = Math.PI * 2
-                return rotation - Math.round(rotation / pi2) * pi2
-            }
-            return rotation
+            const pi2 = Math.PI * 2;
+            while (rotation > pi2) rotation -= pi2;
+            while (rotation < 0) rotation += pi2;
+            return rotation;
         }
 
         function register(eventType, pos, callback) {
-            document.addEventListener(eventType,
-                event => {
-                    pos.x = event.clientX
-                    pos.y = event.clientY
-                    pos.toString = () => {
-                        return `[${pos.x}, ${pos.y}]`
-                    }
-                    callback()
-                }
-            )
+            document.addEventListener(eventType, (event) => {
+                pos.x = event.clientX;
+                pos.y = event.clientY;
+                pos.toString = () => `[${pos.x}, ${pos.y}]`;
+                callback();
+            });
         }
 
         function rotateRubik() {
-            var x = pos1.x - pos0.x
-            var y = pos1.y - pos0.y
-            var rotation = Math.PI * (Math.sqrt(x * x + y * y) / 200)
+            if (!isDragging) return;
+
+            var x = pos1.x - pos0.x;
+            var y = pos1.y - pos0.y;
+            var rotation = Math.PI * (Math.sqrt(x * x + y * y) / 200);
             var rubik = document.querySelector('.rubik');
 
-            let lastTransition = transitions.pop()
+            let lastTransition = transitions.pop();
             if (lastTransition) {
-                const xy = normalize(lastTransition.x + x, lastTransition.y + y)
-                x = xy[0]
-                y = xy[1]
-                rotation =  rotation + lastTransition.rotation
+                const xy = normalize(lastTransition.x + x, lastTransition.y + y);
+                x = xy[0];
+                y = xy[1];
+                rotation += lastTransition.rotation;
             }
 
-            console.log('rotation=', rotation, 'π x=', x, 'y=', y)
-            rubik.style.transform = `translateZ(-90px) rotate3D(${y}, ${x}, 0, ${rotation}rad)`
-            transitions.push({ x: x, y: y, rotation: normalizeRotation(rotation) })
+            rubik.style.transform = `translateZ(-90px) rotate3D(${y}, ${x}, 0, ${rotation}rad)`;
+            transitions.push({ x: x, y: y, rotation: normalizeRotation(rotation) });
         }
-        register('mousedown', pos0, () => { })
-        register('mouseup', pos1, rotateRubik)
+
+        document.addEventListener('mousedown', (event) => {
+            isDragging = true;
+            pos0.x = event.clientX;
+            pos0.y = event.clientY;
+        });
+
+        document.addEventListener('mousemove', (event) => {
+            if (isDragging) {
+                pos1.x = event.clientX;
+                pos1.y = event.clientY;
+                rotateRubik();
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
     </script>
 </body>
 
